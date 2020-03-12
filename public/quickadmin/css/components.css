@@ -38,14 +38,20 @@ General reset
 ***/
 /* Set default body */
 body {
-  color: #333333;
+  color: 	#5DBCD2;
   font-family: "Open Sans", sans-serif;
   padding: 0px !important;
   margin: 0px !important;
   font-size: 13px;
   direction: ltr;
+  padding-top: 0px;
 }
-
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
 /*
  Internet Explorer 10 doesn't differentiate device width from viewport width, and thus doesn't 
  properly apply the media queries in Bootstrap's CSS. To address this, 
@@ -1990,7 +1996,9 @@ Customized Bootstrap Buttons
   -moz-box-shadow: none;
   box-shadow: none;
 }
-
+.menu-toggler {
+  backgeound-color: #5dbcd2;
+}
 .btn + .btn {
   margin-left: 5px;
 }
@@ -2051,8 +2059,8 @@ Customized Bootstrap Buttons
 
 .btn-primary {
   color: #fff;
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: #5dbcd2;
+
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
   color: #fff;
@@ -4321,8 +4329,8 @@ Customized Bootstrap Panels
   border-color: #e0e0e0;
 }
 .panel-default > .panel-heading {
-  color: #333333;
-  background-color: #f9f9f9;
+  color: #ffffff;
+  background-color: #5dbcd2;
   border-color: #e0e0e0;
 }
 .panel-default > .panel-heading + .panel-collapse .panel-body {
@@ -6540,7 +6548,7 @@ AngularJS Basic Animations
 }
 /* Button */
 .btn.default {
-  color: #333333;
+  color: 	#5DBCD2;
   background-color: #E5E5E5;
 }
 .btn.default:hover, .btn.default:focus, .btn.default:active, .btn.default.active {
@@ -9074,7 +9082,7 @@ Grey Default
 }
 .grey.btn .badge {
   color: #E5E5E5;
-  background-color: #333333;
+  background-color: 	#5DBCD2;
 }
 
 /* Button Strip */
@@ -9167,7 +9175,7 @@ Grey Default
 }
 .dashboard-stat.grey .more {
   color: #333333;
-  background-color: #dbdbdb;
+  background-color: #5DBCD2;
 }
 
 /* General Element */

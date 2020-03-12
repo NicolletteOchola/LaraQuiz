@@ -4,6 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+        <img src="{{ URL::asset('quickadmin/images/WaziLogo.png') }}" alt="logo" class="logo" width="70px">
+            <h3 class="text-center">Anonymous Digital Therapy Wherever you are.</h3>
+            <br />
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">

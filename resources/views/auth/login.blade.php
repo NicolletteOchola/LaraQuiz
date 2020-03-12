@@ -3,8 +3,8 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h1 class="text-center" style="color: white">LaraQuiz</h1>
-            <h3 class="text-center" style="color: white">How well do you know Laravel?</h3>
+            <img src="{{ URL::asset('quickadmin/images/WaziLogo.png') }}" alt="logo" class="logo" width="70px">
+            <h3 class="text-center">Anonymous Digital Therapy Wherever you are.</h3>
             <br />
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
@@ -21,7 +21,7 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal"
+                    <form class="form-horizontal" style="border-radius: 0.2rem !Important;"
                           role="form"
                           method="POST"
                           action="{{ url('login') }}">
@@ -73,7 +73,7 @@
                                 <a href="{{ route('auth.password.reset') }}">Forgot password</a>
                                 <br>
                                 <br>
-                                Or login with:
+                                <!-- Or login with:
                                 <br>
                                 <a href="{{ route('oauth2google') }}"
                                         class="btn btn-info">
@@ -85,15 +85,14 @@
                                 </a>
                                 <a href="{{ route('oauth2github') }}"
                                         class="btn btn-info">
-                                    GitHub
+                                    GitHub -->
                                 </a>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="text-center" style="color: white">Created by <a href="http://laraveldaily.com">Laravel Daily Team</a></div>
-            <div class="text-center" style="color: white">Powered by <a href="https://quickadminpanel.com">QuickAdminPanel.com</a></div>
+            <div class="text-center" style="color: #5dbcd2">Created by <a href="http://wazi.co">Wazi</a></div>
         </div>
     </div>
 @endsection

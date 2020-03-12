@@ -11,6 +11,7 @@
 
     <div class="page-header navbar navbar-fixed-top">
         @include('partials.header')
+        
     </div>
 
     <div class="clearfix"></div>

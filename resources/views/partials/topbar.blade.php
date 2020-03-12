@@ -11,7 +11,8 @@
             <a href="javascript:;"
                class="menu-toggler responsive-toggler"
                data-toggle="collapse"
-               data-target=".navbar-collapse">
+               data-target=".navbar-collapse"
+               style="background-color: #5dbcd2">
             </a>
 
             <div class="top-menu">

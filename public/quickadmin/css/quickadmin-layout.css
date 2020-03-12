@@ -1,6 +1,7 @@
 @media print {
     body {
         background-color: #fff !important;
+        
     }
 
     .page-bar {
@@ -58,6 +59,7 @@ Page Header
     min-height: 46px;
     filter: none;
     background-image: none;
+    background-color:#5DBCD2;
     /* Fixed header */
     /* Header logo */
     /* Search box */
@@ -1005,7 +1007,7 @@ Page container
 ***/
 .page-container {
     margin: 0px;
-    padding: 0px;
+    padding: 20px;
     position: relative;
     /* Fixed header */
     /* Fixed footer for mobile */
@@ -1039,7 +1041,7 @@ Page container
     /* Page container */
     .page-container {
         margin: 0 !important;
-        padding: 0 !important;
+        
     }
 
     .page-header-fixed.page-header-fixed-mobile .page-container {
@@ -3067,7 +3069,7 @@ Page Loading
 }
 
 .navbar-brand {
-    color: #C5C5C5;
+    color: #ffffff;
 }
 
 .navbar-brand:hover {
