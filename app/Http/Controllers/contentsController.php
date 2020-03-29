@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Content;
 
 class contentsController extends Controller
 {
@@ -10,5 +11,46 @@ class contentsController extends Controller
         $data = "this page works fine";
         
         return view('contents/content', compact('data'));
+    }
+
+    public function storeContents(request $request){
+        if($request['title']){
+            $file = $request['file'];
+            if ($file) {
+                // get file name with extension
+                $fileNameWithExt = $file->getClientOriginalName();
+                
+                // get file name alone
+                $fileNm = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+                
+                // get file extension
+                $ext = $file->getClientOriginalExtension();
+                
+                // file name to store
+                $fileNames = $fileNm.'_'.time().'.'.$ext;
+                
+                $files = $request->file->storeAs('public/contents', $fileNames);
+                // print($request->video->store('public/videoCont'));
+                // $urrl = Storage::url($image);
+                
+                
+            }else{
+                //     print("please select a video");
+            };
+
+            // create the new image
+            $textCont = new Content;
+            $textCont->title = $request['title'];
+            $textCont->content = $request['content'];   
+            $textCont->tag = $request['tag']; 
+            print($textCont->tag);  
+            // $textCont->file =  $fileNames;
+            $textCont->save();
+            
+            
+            return redirect('content');
+        }else{
+            return view('contents/create-content');
+        }
     }
 }
