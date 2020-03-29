@@ -31,7 +31,7 @@
             <br>
             <br>
             <br>
-            <a href="">
+            <a href="{!! url('content'); !!}" style="text-decoration:none;">
                 {{ $trial}}
             </a>
         </div>
