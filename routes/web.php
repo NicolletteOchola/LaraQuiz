@@ -26,6 +26,7 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('auth.password.email');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
+// content Routes...
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');

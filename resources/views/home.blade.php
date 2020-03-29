@@ -28,6 +28,12 @@
                 </div>
             </div>
             <a href="{{ route('tests.index') }}" class="btn btn-success">Take a new Assesment</a>
+            <br>
+            <br>
+            <br>
+            <a href="">
+                {{ $trial}}
+            </a>
         </div>
     </div>
 @endsection

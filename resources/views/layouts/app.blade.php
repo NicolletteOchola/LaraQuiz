@@ -48,7 +48,8 @@
                             </div>
                         @endif
 
-                        @yield('content')
+                        @section('content')
+                        @show
 
                     </div>
                 </div>
