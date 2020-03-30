@@ -33,6 +33,14 @@
                     <span class="title">@lang('quickadmin.questions.title')</span>
                 </a>
             </li>
+
+            <li class="{{ $request->segment(1) == 'questions' ? 'active' : '' }}" style="background-color: #ffffff">
+                <a href="{!! url('content'); !!}">
+                    <i class="fa fa-gears"></i>
+                    <span class="title">@lang('Contents')</span>
+                </a>
+            </li>
+
             <li class="{{ $request->segment(1) == 'questions_options' ? 'active' : '' }}" style="background-color: #ffffff">
                 <a href="{{ route('questions_options.index') }}">
                     <i class="fa fa-gears"></i>

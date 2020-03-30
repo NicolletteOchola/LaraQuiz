@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Content;
+use App\Topic;
 
 class contentsController extends Controller
 {
@@ -14,6 +15,8 @@ class contentsController extends Controller
     }
 
     public function storeContents(request $request){
+        $tags = Topic::all()->toArray();
+
         if($request['title']){
             $file = $request['file'];
             if ($file) {
@@ -50,7 +53,7 @@ class contentsController extends Controller
             
             return redirect('content');
         }else{
-            return view('contents/create-content');
+            return view('contents/create-content', compact('tags'));
         }
     }
 }
