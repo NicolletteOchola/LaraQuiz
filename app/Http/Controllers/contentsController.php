@@ -9,8 +9,8 @@ use App\Topic;
 class contentsController extends Controller
 {
     public function contents(){
-        $data = "this page works fine";
-        
+        $data = Content::all()->toArray();
+                
         return view('contents/content', compact('data'));
     }
 
@@ -44,9 +44,17 @@ class contentsController extends Controller
             // create the new image
             $textCont = new Content;
             $textCont->title = $request['title'];
-            $textCont->content = $request['content'];   
-            $textCont->tag = $request['tag']; 
-            print($textCont->tag);  
+            print($request['title']);
+
+            $textCont->content = $request['content'];
+            print($request['content']); 
+
+            $textCont->tag = $request['tag'];
+            print($request['tag']); 
+
+            $textCont->user_id = $id = auth()->user()->id;
+            print("*******************");
+            print($textCont->user_id);  
             // $textCont->file =  $fileNames;
             $textCont->save();
             
