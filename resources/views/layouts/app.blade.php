@@ -3,6 +3,7 @@
 
 <head>
     @include('partials.head')
+    <link rel="shortcut icon" type="image/png" href="{{ URL::asset('quickadmin/images/WaziLogo.png') }}">
 </head>
 
 <body class="page-header-fixed">

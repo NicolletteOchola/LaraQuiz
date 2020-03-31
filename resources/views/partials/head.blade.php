@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <title>
-    LaraQuiz - powered by QuickAdminPanel.com 
+    Wazi Assessments 
 </title>
 
 <meta http-equiv="X-UA-Compatible"

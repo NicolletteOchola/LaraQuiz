@@ -93,7 +93,7 @@ return [
 		],
 	],
 
-	'laravel-quiz' => 'New Laravel Quiz',
+	'laravel-quiz' => 'New Wazi Assessment',
 	'quiz' => 'Answer these 10 questions. There\'s no time limit.',
 	'submit_quiz' => 'Submit answers',
 	'view-result' => 'View result',
