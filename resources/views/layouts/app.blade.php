@@ -5,6 +5,7 @@
     @include('partials.head')
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="shortcut icon" type="image/png" href="{{ URL::asset('quickadmin/images/WaziLogo.png') }}">
 </head>
 
 <body class="page-header-fixed">
