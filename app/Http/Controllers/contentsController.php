@@ -64,4 +64,12 @@ class contentsController extends Controller
             return view('contents/create-content', compact('tags'));
         }
     }
+
+    public function contentsDetails($id){
+        $trial = $id;
+
+        $data = Content::find($id)->first();
+
+        return view('contents/contDetails', compact('trial','data'));
+    }
 }
