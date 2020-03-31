@@ -7,4 +7,7 @@
         <p style="margin-bottom:2rem;">{{ $data->content }}</p>
         <p style="margin-bottom:2rem;"><em>Posted By</em> <b>{{ $data->user_id }}</b></p>
     </div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        Publish
+    </button>
 @endsection
