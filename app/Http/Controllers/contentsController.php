@@ -9,7 +9,7 @@ use App\Topic;
 class contentsController extends Controller
 {
     public function contents(){
-        $data = Content::all()->toArray();
+        $data = Content::all();
                 
         return view('contents/content', compact('data'));
     }

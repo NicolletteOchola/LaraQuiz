@@ -31,9 +31,9 @@
             <br>
             <br>
             <br>
-            <a href="{!! url('content'); !!}" style="text-decoration:none;">
+            {{-- <a href="{!! url('content'); !!}" style="text-decoration:none;">
                 {{ $trial}}
-            </a>
+            </a> --}}
         </div>
     </div>
 @endsection

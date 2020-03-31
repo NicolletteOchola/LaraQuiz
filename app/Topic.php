@@ -27,4 +27,9 @@ class Topic extends Model
     {
         return $this->hasMany(Question::class, 'topic_id')->withTrashed();
     }
+
+    public function content()
+    {
+        return $this->belongsTo('App\Content', 'tag');
+    }
 }
