@@ -26,6 +26,7 @@
           </div>
         </div>
       </div>  
-    @endforeach  
+    @endforeach
+    {{ $tags }}  
   </div>
 @endsection

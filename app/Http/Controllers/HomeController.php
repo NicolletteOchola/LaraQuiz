@@ -7,6 +7,7 @@ use App\Question;
 use App\Result;
 use App\Test;
 use App\User;
+use App\Content;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,10 +32,11 @@ class HomeController extends Controller
         $questions = Question::count();
         $users = User::whereNull('role_id')->count();
         $quizzes = Test::count();
+        $contents = Content::count();
         $average = Test::avg('result');
 
         $trial = "this page works fine";
 
-        return view('home', compact('questions', 'users', 'quizzes', 'average', 'trial'));
+        return view('home', compact('questions', 'users', 'quizzes', 'average', 'trial', 'contents'));
     }
 }

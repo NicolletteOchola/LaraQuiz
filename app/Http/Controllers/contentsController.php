@@ -10,8 +10,11 @@ class contentsController extends Controller
 {
     public function contents(){
         $data = Content::all();
+
+        $tags = Topic::find(1)->tag;
+        print($tags);
                 
-        return view('contents/content', compact('data'));
+        return view('contents/content', compact('data', 'tags'));
     }
 
     public function storeContents(request $request){

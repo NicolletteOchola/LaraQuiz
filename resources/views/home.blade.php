@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-10" style="">
             <div class="panel panel-default">
                 <div class="panel-heading">Welcome! Here are the stats!.</div>
 
-                <div class="panel-body">
+                <div class="panel-body" style="margin-bottom:2rem;">
                     <div class="row">
                         <div class="col-md-3 text-center">
                             <h1>{{ $questions }}</h1>
@@ -27,13 +27,30 @@
                     </div>
                 </div>
             </div>
+            {{-- 2nd --}}
+            <div class="panel panel-default">
+                <div class="panel-body" style="margin-bottom:2rem;">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <h1>{{ $contents }}</h1>
+                            contents in our database
+                        </div>
+                        {{-- <div class="col-md-3 text-center">
+                            <h1>{{ $users }}</h1>
+                            users registered
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h1>{{ $quizzes }}</h1>
+                            quizzes taken
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+
             <a href="{{ route('tests.index') }}" class="btn btn-success">Take a new Assesment</a>
             <br>
             <br>
             <br>
-            {{-- <a href="{!! url('content'); !!}" style="text-decoration:none;">
-                {{ $trial}}
-            </a> --}}
         </div>
     </div>
 @endsection
