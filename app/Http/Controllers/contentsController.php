@@ -9,12 +9,32 @@ use App\Topic;
 class contentsController extends Controller
 {
     public function contents(){
-        $data = Content::all();
+        // $data = Content::all();
 
-        $tags = Topic::find(1)->tag;
-        print($tags);
+
+        // $tags = Topic::find(1)->tag;
+        // print($tags);
                 
-        return view('contents/content', compact('data', 'tags'));
+        
+        $data = app('db')->select("
+        SELECT * FROM contents 
+        JOIN users on contents.user_id = users.id
+        JOIN topics on contents.tag = topics.id"); 
+        // $data = response()->json($dataa);
+        foreach ($data as $data) {
+
+            $id         = $data->id;
+            print($id);
+            $title  = $data->content_name;
+            $content    = $data->content;
+            $tag = $data->title;
+
+
+            return view('contents/content', compact('id','title','content','tag'));
+        }
+        
+        // return view('contents/content', compact('data'));
+        // return $data;
     }
 
     public function storeContents(request $request){
@@ -44,7 +64,7 @@ class contentsController extends Controller
                 //     print("please select a video");
             };
 
-            // create the new image
+            // create the new content
             $textCont = new Content;
             $textCont->title = $request['title'];
             print($request['title']);
