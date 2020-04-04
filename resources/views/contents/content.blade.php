@@ -6,10 +6,7 @@
     Add Content
   </button>
 </a>
-  <div class="flex mb-4">
-    {{-- @foreach($data as $dataa)
-      {{ $data->id }}
-    @endforeach --}}
+  <div class="flex mb-4">      
       <div class="w-1/3 bg-400 h-12">
         <div class="max-w-lg rounded overflow-hidden shadow-lg">
           <div class="px-6 py-4">

@@ -21,17 +21,28 @@ class contentsController extends Controller
         JOIN users on contents.user_id = users.id
         JOIN topics on contents.tag = topics.id"); 
         // $data = response()->json($dataa);
+        // echo count($data);
+
+        // Trial face;
+        for($i = 0; $i < count($data);$i++){
+            echo $i;
+
+            $trial = $data[$i];
+
+            return view('contents/content', compact('trial'));
+        }
+        
         foreach ($data as $data) {
 
-            $id         = $data->id;
-            print($id);
-            $title  = $data->content_name;
-            $content    = $data->content;
+            $id = $data->id;
+            // echo $id;
+            $title = $data->content_name;
+            $content = $data->content;
             $tag = $data->title;
 
 
-            return view('contents/content', compact('id','title','content','tag'));
-        }
+        };
+        return view('contents/content', compact('id','title','content','tag'));
         
         // return view('contents/content', compact('data'));
         // return $data;
