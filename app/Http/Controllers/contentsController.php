@@ -20,34 +20,20 @@ class contentsController extends Controller
         SELECT * FROM contents 
         JOIN users on contents.user_id = users.id
         JOIN topics on contents.tag = topics.id"); 
-        // $data = response()->json($dataa);
-        // echo count($data);
 
-        // Trial face;
-        for($i = 0; $i < count($data);$i++){
-            echo $i;
+        // return response()->json([
+        //     'body' => view('contents/content', compact('data'))->render(),
+        //     'data' => $data,
+        // ]);
 
-            $trial = $data[$i];
-
-            return view('contents/content', compact('trial'));
-        }
+        // return response()->json($data);
         
-        foreach ($data as $data) {
+        // return response(view('contents/content',array('data'=>$data)),200);
 
-            $id = $data->id;
-            // echo $id;
-            $title = $data->content_name;
-            $content = $data->content;
-            $tag = $data->title;
-
-
-        };
-        return view('contents/content', compact('id','title','content','tag'));
-        
-        // return view('contents/content', compact('data'));
-        // return $data;
+        return view('contents/content',['data'=>$data]);
     }
 
+    // Function for storing contents
     public function storeContents(request $request){
         $tags = Topic::all()->toArray();
 
@@ -102,8 +88,13 @@ class contentsController extends Controller
     public function contentsDetails($id){
         $trial = $id;
 
-        $data = Content::find($id)->first();
+        $data = app('db')->select("
+        SELECT * FROM contents
+        JOIN users on contents.user_id = users.id
+        JOIN topics on contents.tag = topics.id");
 
-        return view('contents/contDetails', compact('trial','data'));
+        // $data = Content::find($id)->first();
+        return response()->json($data);
+        // return view('contents/contDetails', compact('trial','data'));
     }
 }
