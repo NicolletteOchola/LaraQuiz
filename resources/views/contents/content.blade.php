@@ -13,8 +13,8 @@
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">
 
-              <a href="" style="text-decoration:none;">{{ $data->content_name }}</a>
-              {{-- <a href="{{ url('content/'.$id) }}" style="text-decoration:none;">{{ $title }}</a> --}}
+              {{-- <a href="" style="text-decoration:none;">{{ $data->content_name }}</a> --}}
+              <a href="{{ url('content/'.$data->content_id) }}" style="text-decoration:none;">{{ $data->content_name }}</a>
             
             </div>
             <p class="text-gray-700 text-base" style="color:black;font-size:1em;">

@@ -28,7 +28,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 
 // content Routes...
 Route::get('content','contentsController@contents'); 
-Route::get('content/{id}','contentsController@contentsDetails'); 
+Route::get('content/{content_id}','contentsController@contentsDetails'); 
 Route::get('create-content','contentsController@storeContents'); 
 
 Route::post('create-content','contentsController@storeContents'); 

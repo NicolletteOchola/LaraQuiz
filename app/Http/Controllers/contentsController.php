@@ -26,9 +26,9 @@ class contentsController extends Controller
         //     'data' => $data,
         // ]);
 
-        // return response()->json($data);
-        
         // return response(view('contents/content',array('data'=>$data)),200);
+        
+        // return response()->json($data);
 
         return view('contents/content',['data'=>$data]);
     }
@@ -85,16 +85,12 @@ class contentsController extends Controller
         }
     }
 
-    public function contentsDetails($id){
-        $trial = $id;
+    public function contentsDetails($content_id){
+        // $trial = $content_id;
 
-        $data = app('db')->select("
-        SELECT * FROM contents
-        JOIN users on contents.user_id = users.id
-        JOIN topics on contents.tag = topics.id");
+        $trial = Content::find($content_id)->first();
 
-        // $data = Content::find($id)->first();
-        return response()->json($data);
+        return response()->json($trial);
         // return view('contents/contDetails', compact('trial','data'));
     }
 }

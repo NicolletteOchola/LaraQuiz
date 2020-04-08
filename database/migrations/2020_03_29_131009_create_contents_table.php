@@ -14,8 +14,8 @@ class CreateContentsTable extends Migration
     public function up()
     {
         Schema::create('contents', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
+            $table->increments('content_id');
+            $table->string('content_name');
             $table->string('content');
             $table->string('fileName');
             $table->foreign('tag')->references('id')->on('topics');
