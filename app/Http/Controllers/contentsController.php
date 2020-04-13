@@ -87,8 +87,10 @@ class contentsController extends Controller
 
     public function contentsDetails($content_id){
         // $trial = $content_id;
-
-        $trial = Content::find($content_id)->first();
+        echo $content_id;
+        $trial = Content::find($content_id)
+                ->join('users', 'users.id', '=', 'contents.user_id')
+                ->join('topics', 'topics.id', '=', 'contents.tag')->first();
 
         return response()->json($trial);
         // return view('contents/contDetails', compact('trial','data'));
