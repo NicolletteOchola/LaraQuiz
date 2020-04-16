@@ -46,26 +46,25 @@ class contentsController extends Controller
             $fileNm = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
             $ext = $file->getClientOriginalExtension();
             $fileNames = $fileNm.'_'.time().'.'.$ext;
-            echo $fileNames;  
             
+            // encoding the file name before using it as public id on cloudinary 
             $file_tmp = $_FILES['file']['tmp_name'];
             
+            // uploading the image to cloudinary
+            // images able to upload are .png & .jpeg
             $response = \Cloudinary\Uploader::upload($file, array("public_id" => $fileNames));
             
+            // retrieving image url from cloudinary to save to database
             $path = $response['secure_url'];
-            echo $path;
-            // SHOULD RETURN HERE
-            
+           
             // create the new content
             $textCont = new Content;
             $textCont->content_name = $request['content_name'];
-
             $textCont->content = $request['content'];
-
             $textCont->tag = $request['tag'];
-
             $textCont->user_id = $id = auth()->user()->id;
             $textCont->file =  $path;
+            
             $textCont->save();
             
             
