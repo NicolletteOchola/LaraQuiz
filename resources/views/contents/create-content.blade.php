@@ -9,7 +9,7 @@
         <form class="w-full min-w-lg" style="margin:2rem;" action="create-content" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="flex items-center border-b border-b-2 border-teal-500 py-2" style="width:70%;">
-                <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Title" aria-label="Full name" name="title">
+                <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Title" aria-label="Full name" name="content_name">
             </div>
             <br>
             <br>

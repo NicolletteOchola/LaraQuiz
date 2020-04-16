@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+require "../vendor/autoload.php";
+require "../config-cloud.php";
+
 use Illuminate\Http\Request;
 use App\Content;
 use App\Topic;
@@ -37,45 +40,33 @@ class contentsController extends Controller
     public function storeContents(request $request){
         $tags = Topic::all()->toArray();
 
-        if($request['title']){
+        if($request['content_name']){
             $file = $request['file'];
-            if ($file) {
-                // get file name with extension
-                $fileNameWithExt = $file->getClientOriginalName();
-                
-                // get file name alone
-                $fileNm = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-                
-                // get file extension
-                $ext = $file->getClientOriginalExtension();
-                
-                // file name to store
-                $fileNames = $fileNm.'_'.time().'.'.$ext;
-                
-                $files = $request->file->storeAs('public/contents', $fileNames);
-                // print($request->video->store('public/videoCont'));
-                // $urrl = Storage::url($image);
-                
-                
-            }else{
-                //     print("please select a video");
-            };
-
+            $fileNameWithExt = $file->getClientOriginalName();
+            $fileNm = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $file->getClientOriginalExtension();
+            $fileNames = $fileNm.'_'.time().'.'.$ext;
+            echo $fileNames;  
+            
+            $file_tmp = $_FILES['file']['tmp_name'];
+            
+            \Cloudinary\Uploader::upload($file, array("public_id" => $fileNames));
+            
+            $response = \Cloudinary\Uploader::getResult();
+            $path = $response['secure_url'];
+            echo $path;
+            // SHOULD RETURN HERE
+            
             // create the new content
             $textCont = new Content;
-            $textCont->title = $request['title'];
-            print($request['title']);
+            $textCont->content_name = $request['content_name'];
 
             $textCont->content = $request['content'];
-            print($request['content']); 
 
             $textCont->tag = $request['tag'];
-            print($request['tag']); 
 
             $textCont->user_id = $id = auth()->user()->id;
-            print("*******************");
-            print($textCont->user_id);  
-            // $textCont->file =  $fileNames;
+            $textCont->file =  $path;
             $textCont->save();
             
             
