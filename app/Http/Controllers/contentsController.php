@@ -42,20 +42,29 @@ class contentsController extends Controller
 
         if($request['content_name']){
             $file = $request['file'];
-            $fileNameWithExt = $file->getClientOriginalName();
-            $fileNm = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-            $ext = $file->getClientOriginalExtension();
-            $fileNames = $fileNm.'_'.time().'.'.$ext;
-            
-            // encoding the file name before using it as public id on cloudinary 
-            $file_tmp = $_FILES['file']['tmp_name'];
-            
-            // uploading the image to cloudinary
-            // images able to upload are .png & .jpeg
-            $response = \Cloudinary\Uploader::upload($file, array("public_id" => $fileNames));
-            
-            // retrieving image url from cloudinary to save to database
-            $path = $response['secure_url'];
+            if($file){
+
+                $fileNameWithExt = $file->getClientOriginalName();
+                $fileNm = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+                $ext = $file->getClientOriginalExtension();
+                $fileNames = $fileNm.'_'.time().'.'.$ext;
+    
+                // encoding the file name before using it as public id on cloudinary 
+                $file_tmp = $_FILES['file']['tmp_name'];
+                
+                if($ext = 'mp4' || $ext = 'mp3' || $ext = 'avi' || $ext = 'mov'){
+                    // uploading the image to cloudinary
+                    // images able to upload are .png & .jpeg
+                    $response = \Cloudinary\Uploader::upload($file, array("resource_type" => "video", "public_id" => $fileNames));
+                }else{
+                    $response = \Cloudinary\Uploader::upload($file, array("public_id" => $fileNames));
+                }
+                
+                // retrieving image url from cloudinary to save to database
+                $path = $response['secure_url'];
+            }else{
+                $path = '';
+            }
            
             // create the new content
             $textCont = new Content;

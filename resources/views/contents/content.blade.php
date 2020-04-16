@@ -13,18 +13,16 @@
         <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">
 
-            {{-- <a href="" style="text-decoration:none;">{{ $data->content_name }}</a> --}}
             <a href="{{ url('content/'.$data->content_id) }}" style="text-decoration:none;">{{ $data->content_name }}</a>
           
           </div>
           <p class="text-gray-700 text-base" style="color:black;font-size:1em;">
             {{ \Illuminate\Support\Str::limit($data->content, 100) }}
           </p>
+          {{-- <img src="{{ $data->file }}" alt=""> --}}
         </div>
         <div class="px-6 py-4">
           <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#{{ $data->title }}</span>
-          {{-- <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#{{ $tag }}</span> --}}
-          {{-- <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#stress</span> --}}
         </div>
       </div>
     </div>
