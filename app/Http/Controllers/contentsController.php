@@ -50,9 +50,8 @@ class contentsController extends Controller
             
             $file_tmp = $_FILES['file']['tmp_name'];
             
-            \Cloudinary\Uploader::upload($file, array("public_id" => $fileNames));
+            $response = \Cloudinary\Uploader::upload($file, array("public_id" => $fileNames));
             
-            $response = \Cloudinary\Uploader::getResult();
             $path = $response['secure_url'];
             echo $path;
             // SHOULD RETURN HERE
