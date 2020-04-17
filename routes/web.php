@@ -30,6 +30,9 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 Route::get('content','contentsController@contents'); 
 Route::get('content/{content_id}','contentsController@contentsDetails'); 
 Route::get('create-content','contentsController@storeContents'); 
+Route::get('/content/{content_id}/edit', 'contentsController@edit');
+
+Route::patch('/content/{content_id}', 'contentsController@update')->name('content.update');
 
 Route::post('create-content','contentsController@storeContents'); 
 

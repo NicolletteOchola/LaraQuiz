@@ -25,6 +25,9 @@
           <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#{{ $data->title }}</span>
         </div>
       </div>
+      @if (Auth::check() && $data->user_id == Auth::id())
+        <a href="{{URL::to('/')}}/content/{{ $data->content_id }}/edit">Edit</a>
+      @endif
     </div>
   @endforeach
 </div>

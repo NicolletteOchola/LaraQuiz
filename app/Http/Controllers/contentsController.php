@@ -93,4 +93,20 @@ class contentsController extends Controller
         return response()->json($trial);
         // return view('contents/contDetails', compact('trial','data'));
     }
+
+    public function edit(Request $request) {
+        $post = Content::findOrFail($request->content_id);
+
+        return view('contents/content_edit', ['post' => $post]);
+    }
+    
+    public function update(Request $request) {
+        $post = Content::findOrFail($request->content_id);
+        $post->update([
+            'content_name' => $request->content_name,
+            'content' => $request->content
+        ]);
+        
+        return redirect('content');
+    }
 }

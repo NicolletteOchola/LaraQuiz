@@ -8,6 +8,11 @@ class Content extends Model
 {
     protected $primaryKey = 'content_id';
 
+    // fields that can be filled
+    protected $fillable = ['content_name', 'content'];
+
+    // 'title' => 'required|unique:posts,title,'.$this->id.'|max:255';
+
     public function getRouteKeyName()
     {
         // return 'content_id';
