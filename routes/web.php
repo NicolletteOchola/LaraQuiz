@@ -32,10 +32,11 @@ Route::get('content/{content_id}','contentsController@contentsDetails');
 Route::get('create-content','contentsController@storeContents'); 
 Route::get('/content/{content_id}/edit', 'contentsController@edit');
 
-Route::patch('/content/{content_id}', 'contentsController@update')->name('content.update');
-
 Route::post('create-content','contentsController@storeContents'); 
 
+Route::patch('/content/{content_id}', 'contentsController@update')->name('content.update');
+
+Route::delete('/content/{content_id}', 'contentsController@destroy');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');

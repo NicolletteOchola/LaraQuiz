@@ -27,7 +27,15 @@
       </div>
       @if (Auth::check() && $data->user_id == Auth::id())
         <a href="{{URL::to('/')}}/content/{{ $data->content_id }}/edit">Edit</a>
+
+        <form action="{{URL::to('/')}}/content/{{ $data->content_id }}" method="POST">
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+         
+          <button type="submit">Delete</button>
+        </form>
       @endif
+
     </div>
   @endforeach
 </div>

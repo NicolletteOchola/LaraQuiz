@@ -24,15 +24,6 @@ class contentsController extends Controller
         JOIN users on contents.user_id = users.id
         JOIN topics on contents.tag = topics.id"); 
 
-        // return response()->json([
-        //     'body' => view('contents/content', compact('data'))->render(),
-        //     'data' => $data,
-        // ]);
-
-        // return response(view('contents/content',array('data'=>$data)),200);
-        
-        // return response()->json($data);
-
         return view('contents/content',['data'=>$data]);
     }
 
@@ -88,7 +79,7 @@ class contentsController extends Controller
         echo $content_id;
         $trial = Content::find($content_id)
                 ->join('users', 'users.id', '=', 'contents.user_id')
-                ->join('topics', 'topics.id', '=', 'contents.tag')->first();
+                ->join('topics', 'topics.id', '=', 'contents.tag');
 
         return response()->json($trial);
         // return view('contents/contDetails', compact('trial','data'));
@@ -107,6 +98,13 @@ class contentsController extends Controller
             'content' => $request->content
         ]);
         
+        return redirect('content');
+    }
+
+    public function destroy(Request $request) {
+        $post = Content::findOrFail($request->content_id);
+        $post->delete();
+       
         return redirect('content');
     }
 }

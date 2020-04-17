@@ -4,9 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use SoftDeletes;
+
 class Content extends Model
 {
     protected $primaryKey = 'content_id';
+    protected $dates = ['deleted_at'];
 
     // fields that can be filled
     protected $fillable = ['content_name', 'content'];
