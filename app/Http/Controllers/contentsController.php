@@ -47,7 +47,8 @@ class contentsController extends Controller
                     // uploading the image to cloudinary
                     // images able to upload are .png & .jpeg
                     $response = \Cloudinary\Uploader::upload($file, array("resource_type" => "video", "public_id" => $fileNames));
-                }else{
+                }elseif($ext = 'npg' || $ext = 'jpeg'){
+                    
                     $response = \Cloudinary\Uploader::upload($file, array("public_id" => $fileNames));
                 }
                 
