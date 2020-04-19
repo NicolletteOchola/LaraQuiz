@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container" style="width:95%;border:solid;margin:0 auto;min-height:80%;">
+    <div class="container" style="width:95%;margin:0 auto;min-height:80%;">
         <h2 style="font-size:2em; margin-bottom:3rem;"><b>{{ $data->content_name }}</b></h2>
         {{-- this is for the tag title --}}
         <p style="margin-bottom:2rem;">{{ $data->content }}</p>
