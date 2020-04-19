@@ -38,18 +38,19 @@ class contentsController extends Controller
                 $fileNameWithExt = $file->getClientOriginalName();
                 $fileNm = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
                 $ext = $file->getClientOriginalExtension();
-                $fileNames = $fileNm.'_'.time().'.'.$ext;
+                $fileNames = $fileNm.'_'.time();
     
                 // encoding the file name before using it as public id on cloudinary 
                 $file_tmp = $_FILES['file']['tmp_name'];
                 
-                if($ext = 'mp4' || $ext = 'mp3' || $ext = 'avi' || $ext = 'mov'){
+                if($ext = 'npg' || $ext = 'jpeg'){
                     // uploading the image to cloudinary
                     // images able to upload are .png & .jpeg
-                    $response = \Cloudinary\Uploader::upload($file, array("resource_type" => "video", "public_id" => $fileNames));
-                }elseif($ext = 'npg' || $ext = 'jpeg'){
-                    
                     $response = \Cloudinary\Uploader::upload($file, array("public_id" => $fileNames));
+                    
+                }elseif($ext = 'mp4' || $ext = 'mp3' || $ext = 'avi' || $ext = 'mov'){
+                    
+                    $response = \Cloudinary\Uploader::upload($file, array("resource_type" => "video", "public_id" => $fileNames));
                 }
                 
                 // retrieving image url from cloudinary to save to database
@@ -77,13 +78,12 @@ class contentsController extends Controller
 
     public function contentsDetails($content_id){
         // $trial = $content_id;
-        echo $content_id;
-        $trial = Content::where('content_id', '=', $content_id)
+        $data = Content::where('content_id', '=', $content_id)
                 ->join('users', 'users.id', '=', 'contents.user_id')
                 ->join('topics', 'topics.id', '=', 'contents.tag')->first();
 
-        return response()->json($trial);
-        // return view('contents/contDetails', compact('trial','data'));
+        // return response()->json($trial);
+        return view('contents/contDetails', compact('data'));
     }
 
     public function edit(Request $request) {
