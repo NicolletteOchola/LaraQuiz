@@ -33,7 +33,7 @@
             <br>
             <br>
             <div class="flex items-center border-b border-b-2 border-teal-500 py-2" style="width:70%;">
-                <textarea class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Jane Doe" name="content">
+                <textarea class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Content" name="content">
                 </textarea>
             </div>
             <br>
