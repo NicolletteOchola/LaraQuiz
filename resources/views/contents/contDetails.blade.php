@@ -10,7 +10,7 @@
                 <em>File Url:</em> <b><a href="{{ $data->file }}" target="_blank">Content File</a></b>
             </p>
         @endif
-        <p style="margin-bottom:2rem;"><em>Tag</em><b>{{ $data->title }}</b></p>
+        <p style="margin-bottom:2rem;"><em>Tag</em><b>&nbsp;{{ $data->title }}</b></p>
         <p style="margin-bottom:2rem;"><em>Posted By</em> <b>{{ $data->name }}</b></p>
     </div>
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" style="margin-left:2.5rem;">
