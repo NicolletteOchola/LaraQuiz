@@ -50,6 +50,7 @@ class contentsController extends Controller
                     
                 }elseif($ext = 'mp4' || $ext = 'mp3' || $ext = 'avi' || $ext = 'mov'){
                     
+                    // THE LOOP DOES NOT GO THROUGH THIS WITH AUDIOS AND VIDEOS
                     $response = \Cloudinary\Uploader::upload($file, array("resource_type" => "video", "public_id" => $fileNames));
                 }
                 
